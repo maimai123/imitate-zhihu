@@ -1,6 +1,6 @@
 # vuex-maimai
 
-> 练习vuex 有bug 回去继续改
+> 用vue搭一个简单的单页应用，不定时更新~~~
 
 ## Build Setup
 
