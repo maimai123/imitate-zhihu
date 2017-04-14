@@ -2,8 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '../App.vue';
 import Article from '../components/view/articles.vue'
-import About from '../components/view/About.vue'
+import Detail from '../components/view/About.vue'
 import Login from '../components/view/Login.vue'
+import Echarts from '../components/view/echarts.vue'
 
 Vue.use(Router)
 const router = new Router({
@@ -32,11 +33,19 @@ const router = new Router({
           }
         },
         {
-          path: 'about',
-          name: 'About',
-          component: About,
+          path: 'detail',
+          name: 'Detail',
+          component: Detail,
           meta:{
             title:'详情'
+          }
+        },
+        {
+          path: 'echarts',
+          name: 'Echarts',
+          component: Echarts,
+          meta:{
+            title:'echarts'
           }
         }
       ]

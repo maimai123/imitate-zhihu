@@ -1,6 +1,6 @@
 <template>
   <div class="app_views">
-      <div class="card" v-for="(item,index) in lists" :key="index">
+      <div class="card" v-for="(item,index) in lists" :key="index" @click="goto(item.id)">
           <div class="imgbox">
             <img :src="item.images" alt="pic">
           </div>
@@ -24,7 +24,14 @@ export default {
     })
   },
   methods:{
-
+    goto(ids){
+      this.$router.push({
+        path:'detail',
+        query:{
+          articleId : ids || ''
+        }
+      });
+    }
   },
   mounted(){
     let self = this;

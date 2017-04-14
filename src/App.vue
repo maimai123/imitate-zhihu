@@ -61,6 +61,7 @@ body{
   height:100vh;
   overflow-y:auto;
   overflow-x:hidden;
+  background-color:#f1f1f1;
 }
 ::-webkit-scrollbar{width:2px;}
 ::-webkit-scrollbar-track{background-color:#ddd;}

@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "echarts": "^3.5.2",
+    "element-ui": "^1.2.7",
     "vue": "2.2.1",
     "vue-resource": "^1.2.1",
     "vue-router": "^2.3.0",
-    "vuex": "^2.2.1"
+    "vuex": "^2.2.1",
+    "vux": "^2.1.1-rc.14"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

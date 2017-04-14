@@ -7,94 +7,51 @@
       <div class="rect4"></div>
       <div class="rect5"></div>
   	</div>
-    <div class="con" v-else>
-      <div v-if="content.image" class="con-img">
-    		<img :src="content.image" />
-    		<div class="con-img-mask"></div>
-    		<h2>{{content.title}}</h2>
-    	</div>
-      <div v-html="content.body">
-
-      </div>
+    <div v-else>
+      ss
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'detail',
+  name: 'about',
   data () {
     return {
-      isLoading: true,
+      isLoading: false,
       show: true,
-      content:'麦麦',
     }
   },
   mounted(){
-    var self =this;
-    var id = this.$route.query.articleId;
-    this.$http.get('https://zhihu-agent.herokuapp.com/get?api=/4/news/'+id).then(response => {
-      self.isLoading = false;
-      self.content = response.body;
-
-      // self.$nextTick(function () { //dom更新后触发
-      //   // 把获取到的css放入head
-      //   var head = document.getElementsByTagName('head')[0];
-      //   var linkTag = document.createElement('link');
-      //   linkTag.href = response.body.css[0];
-      //   head.appendChild(linkTag);
-      // });
-
-      }, response => {
-        console.log("请求失败");
-      });
+  //   wx.config({
+  //     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+  //     appId: 'wxced88827ff34f52c', // 必填，公众号的唯一标识
+  //     timestamp: '', // 必填，生成签名的时间戳
+  //     nonceStr: '', // 必填，生成签名的随机串
+  //     signature: '',// 必填，签名，见附录1
+  //     jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+  // });
   }
 }
 </script>
-<style lang="less">
-@import 'http://news-at.zhihu.com/css/news_qa.auto.css?v=4b3e3';
-.content-wrap{
-  background-color: #f9f9f9 !important;
-}
-.img-place-holder{
-  height:0 !important;
-}
+
+<style lang="less" scoped>
 h1, h2 {
   font-weight: normal;
 }
-.con-img {
-    height: 6rem;
-    overflow: hidden;
-    position: relative;
-    img {
-        top: 50%;
-        width: 100%;
-        position: relative;
-        transform: translate(0,-50%);
-    }
-    h2 {
-        width: 60%;
-        margin: 0;
-        padding: 0;
-        right: 5%;
-        bottom: 1rem;
-        text-align: right;
-        font-size: 0.45rem;
-        color: rgba(255,255,255,.9);
-        position: absolute;
-        text-shadow: 0 0 5px rgba(0,0,0,.5);
-    }
-    &-mask {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(91,116,146,0.50);
-        position: absolute;
-    }
+.details{
+  width: 100%;
+  height: 100vh;
+  background: #f5f5f5;
+  .box{
+    width:2rem;
+    height:2rem;
+    border-radius: 50%;
+    border:2px solid red;
+  }
 }
 .spinner{
-  z-index:4;
+  z-index: 999;
   padding-top: 15%;
   box-sizing: border-box;
   text-align: center;
@@ -153,7 +110,6 @@ h1, h2 {
   height: 1500px;
   background: pink;
 }
-
 .slide-fade-enter-active {
   transition: all .3s ease;
 }

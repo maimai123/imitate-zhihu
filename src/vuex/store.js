@@ -16,8 +16,8 @@ const state = {
         name:"首页"
       },
       {
-        link:'/about',
-        name:"关于"
+        link:'/echarts',
+        name:"echarts"
       }
     ],
     lists: []
