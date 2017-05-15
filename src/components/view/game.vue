@@ -8,7 +8,12 @@
       <div class="rect5"></div>
   	</div>
     <div v-else>
-      ss
+      <input type="text" v-model="key" @change="updates">
+      <ul>
+          <li v-for="item in filterShoppingList">
+              {{ item }}
+          </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -19,18 +24,32 @@ export default {
   data () {
     return {
       isLoading: false,
-      show: true,
+      message:'',
+      shoppingList: [
+          "Milk", "Donuts", "Cookies", "Chocolate", "Peanut Butter", "Pepto Bismol", "Pepto Bismol (Chocolate flavor)", "Pepto Bismol (Cookie flavor)"
+      ],
+      key: ""
     }
   },
+  computed: {
+      filterShoppingList: function () {
+          var key = this.key;
+          var shoppingList = this.shoppingList;
+          return shoppingList.filter(function (item) {
+              return item.toLowerCase().indexOf(key.toLowerCase()) != -1
+          });;
+      }
+  },
   mounted(){
-  //   wx.config({
-  //     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-  //     appId: 'wxced88827ff34f52c', // 必填，公众号的唯一标识
-  //     timestamp: '', // 必填，生成签名的时间戳
-  //     nonceStr: '', // 必填，生成签名的随机串
-  //     signature: '',// 必填，签名，见附录1
-  //     jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-  // });
+    let self = this;
+    this.$nextTick(function(){
+      console.log("dom?")
+    });
+  },
+  methods:{
+    updates(e){
+      console.log(e.target.value);
+    }
   }
 }
 </script>

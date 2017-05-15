@@ -5,7 +5,8 @@ import Article from '../components/view/articles.vue'
 import Detail from '../components/view/About.vue'
 import Login from '../components/view/Login.vue'
 import Echarts from '../components/view/echarts.vue'
-
+import Filiter from '../components/view/game.vue'
+import Tab from '../components/view/tab.vue'
 Vue.use(Router)
 const router = new Router({
   // mode: 'history',
@@ -14,7 +15,7 @@ const router = new Router({
       path: '/',
       name: 'Layout',
       component: Layout,
-      redirect:'/Articles',
+      redirect:'/tab',
       children:[
         {
           path: 'Articles',
@@ -46,6 +47,22 @@ const router = new Router({
           component: Echarts,
           meta:{
             title:'echarts'
+          }
+        },
+        {
+          path: 'Filiter',
+          name: 'Filiter',
+          component: Filiter,
+          meta:{
+            title:'Filiter'
+          }
+        },
+        {
+          path: 'tab',
+          name: 'tab',
+          component: Tab,
+          meta:{
+            title:'tab切换'
           }
         }
       ]
